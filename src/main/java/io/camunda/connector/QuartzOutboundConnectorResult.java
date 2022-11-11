@@ -2,17 +2,17 @@ package io.camunda.connector;
 
 import java.util.Objects;
 
-public class MyConnectorResult {
+public class QuartzOutboundConnectorResult {
 
   // TODO: define connector result properties, which are returned to the process engine
-  private String myProperty;
+  private String jobId;
 
-  public String getMyProperty() {
-    return myProperty;
+  public String getJobId() {
+    return jobId;
   }
 
-  public void setMyProperty(String myProperty) {
-    this.myProperty = myProperty;
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
   }
 
   @Override
@@ -23,18 +23,18 @@ public class MyConnectorResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    final MyConnectorResult that = (MyConnectorResult) o;
-    return Objects.equals(myProperty, that.myProperty);
+    final QuartzOutboundConnectorResult that = (QuartzOutboundConnectorResult) o;
+    return Objects.equals(jobId, that.jobId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(myProperty);
+    return Objects.hash(jobId);
   }
 
   @Override
   public String toString() {
-    return "MyConnectorResult [myProperty=" + myProperty + "]";
+    return "QuartzOutboundConnectorResult [jobId=" + jobId + "]";
   }
 
 }

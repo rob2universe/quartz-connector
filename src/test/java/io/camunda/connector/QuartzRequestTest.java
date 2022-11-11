@@ -7,14 +7,14 @@ import io.camunda.connector.impl.ConnectorInputException;
 import io.camunda.connector.test.outbound.OutboundConnectorContextBuilder;
 import org.junit.jupiter.api.Test;
 
-public class MyRequestTest {
+public class QuartzRequestTest {
 
   @Test
   void shouldReplaceTokenSecretWhenReplaceSecrets() {
     // given
-    var input = new MyConnectorRequest();
+    var input = new QuartzOutboundConnectorRequest();
     var auth = new Authentication();
-    input.setMessage("Hello World!");
+    input.setMessage("4711");
     input.setAuthentication(auth);
     auth.setToken("secrets.MY_TOKEN");
     auth.setUser("testuser");
@@ -33,7 +33,7 @@ public class MyRequestTest {
   @Test
   void shouldFailWhenValidate_NoAuthentication() {
     // given
-    var input = new MyConnectorRequest();
+    var input = new QuartzOutboundConnectorRequest();
     input.setMessage("Hello World!");
     var context = OutboundConnectorContextBuilder.create().build();
     // when
@@ -46,7 +46,7 @@ public class MyRequestTest {
   @Test
   void shouldFailWhenValidate_NoToken() {
     // given
-    var input = new MyConnectorRequest();
+    var input = new QuartzOutboundConnectorRequest();
     var auth = new Authentication();
     input.setMessage("Hello World!");
     input.setAuthentication(auth);
@@ -62,7 +62,7 @@ public class MyRequestTest {
   @Test
   void shouldFailWhenValidate_NoMesage() {
     // given
-    var input = new MyConnectorRequest();
+    var input = new QuartzOutboundConnectorRequest();
     var auth = new Authentication();
     input.setAuthentication(auth);
     auth.setUser("testuser");
@@ -78,7 +78,7 @@ public class MyRequestTest {
   @Test
   void shouldFailWhenValidate_TokenWrongPattern() {
     // given
-    var input = new MyConnectorRequest();
+    var input = new QuartzOutboundConnectorRequest();
     var auth = new Authentication();
     input.setMessage("foo");
     input.setAuthentication(auth);
